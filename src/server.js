@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const UserController = require("./controllers/UserController");
+const routes = require("./routes");
 
 const app = express();
 
@@ -23,12 +23,7 @@ try {
   console.log(error);
 }
 
-app.get("/", (req, res) => {
-  console.log(PORT);
-  res.send("1321313   13213");
-});
-
-app.post("/register", UserController.store);
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
