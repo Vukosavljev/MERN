@@ -3,11 +3,11 @@ const UserController = require("./controllers/UserController");
 
 const routes = express.Router();
 
-routes.get("/", (req, res) => {
-  console.log(PORT);
-  res.send("1321313   13213");
+routes.get("/status", (req, res) => {
+  res.send({ status: 200 });
 });
 
-routes.post("/register", UserController.store);
+routes.post("/register", UserController.add);
+routes.get("/register/:userId", UserController.getById);
 
 module.exports = routes;
